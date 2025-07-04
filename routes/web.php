@@ -13,7 +13,6 @@ Route::get('/', fn() => redirect('/reports'));
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/dashboard', [ReportController::class, 'index']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -22,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('customers', CustomerController::class);
     Route::resource('sales', SaleController::class)->only(['index', 'create', 'store']);
 
+    Route::get('/dashboard', [ReportController::class, 'index'])->name('dashboard');
     Route::get('reports', [ReportController::class, 'index'])->name('reports.index');
 
     Route::get('search/products/', [ProductController::class, 'search'])->name('products.search');
