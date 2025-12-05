@@ -4,6 +4,15 @@ A **modern Laravel 12** application to manage **products, customers, sales**, an
 
 ---
 
+## 🛠️ Technical Stack & Technologies Used
+
+* **Laravel** simplifies backend logic, routing, and security.
+* **Blade + Bootstrap** ensures a **fast, clean, and responsive UI**.
+* **AJAX + jQuery** provides **dynamic page updates** without full page reloads, enhancing user experience.
+* **MySQL** offers a **reliable relational database** for storing business-critical data.
+
+---
+
 ## 📑 Table of Contents
 
 - [✨ Features](#-features)
