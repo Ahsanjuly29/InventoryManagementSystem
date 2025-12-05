@@ -1,62 +1,211 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 Laravel Inventory Management System 📊
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A **modern Laravel 12** application to manage **products, customers, sales**, and generate **reports**. Perfect for small businesses or internal tools. Features full **CRUD**, search functionality, authentication, and secure API endpoints.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📑 Table of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [✨ Features](#-features)
+- [📸 Screenshots](#-screenshots)
+- [⚙️ Installation](#-installation)
+- [🛠️ Configuration](#-configuration)
+- [🚀 Usage](#-usage)
+- [🔗 Routes & API](#-routes--api)
+- [🔐 Authentication & Authorization](#-authentication--authorization)
+- [🧰 Artisan Commands](#-artisan-commands)
+- [📜 License](#-license)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- 🔑 **User authentication & registration** with email verification 📧  
+- 👤 **User profile management**: edit, update, delete  
+- 🛍️ **Product Management**: add, edit, delete, list, and view individual products  
+- 👥 **Customer Management**: add, edit, delete, list, and view individual customers  
+- 💵 **Sales Management**: create, list, and track sales  
+- 📊 **Dashboard & Reports**: overview of sales, top products, and customers  
+- 🔍 **Search functionality**: search products and customers by keyword  
+- 🗂️ **JSON API Endpoints**: fetch individual product/customer data  
+- 🔒 **CSRF protection & secure session management**  
+- 🌟 **Artisan inspire command**: motivational quotes in console  
+- ✅ Fully responsive design (works on desktop & mobile)  
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 📸 Screenshots
 
-## Laravel Sponsors
+| 📊 Dashboard | 🛍️ Products Page | 👥 Customers Page | 💵 Sales Page |
+|-------------|-----------------|-----------------|---------------|
+| ![Dashboard](screenshots/1.png) | ![Products Page](screenshots/2.png) | ![Customers Page](screenshots/3.png) | ![Sales Page](screenshots/4.png) |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## ⚙️ Installation
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1. **Clone the repository**:
 
-## Contributing
+```bash
+git clone https://github.com/your-username/laravel-sales-reports.git
+cd laravel-sales-reports
+````
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Install PHP & Node dependencies**:
 
-## Code of Conduct
+```bash
+composer install
+npm install
+npm run dev
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. **Configure environment**:
 
-## Security Vulnerabilities
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. **Set up the database**:
 
-## License
+```bash
+php artisan migrate
+php artisan db:seed
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# InventoryManagementSystem
+5. **Run the development server**:
+
+```bash
+php artisan serve
+```
+
+Visit 🌐 `http://localhost:8000`
+
+---
+
+## 🛠️ Configuration
+
+Update `.env` with your database credentials and optional mail configuration:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="noreply@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+---
+
+## 🚀 Usage
+
+1. Access `/` → redirected to **Reports Page** 📈
+2. Register or log in to access the application 🔑
+3. Use the dashboard to view:
+
+   * 💵 Total sales
+   * 🛍️ Top products
+   * 👥 Top customers
+4. **Products**: create, edit, delete, search, and view individual JSON endpoint
+5. **Customers**: create, edit, delete, search, and view individual JSON endpoint
+6. **Sales**: record new sales and view sales history
+7. Edit user profile at `/profile` 👤
+8. Logout securely via `/logout` 🔒
+
+---
+
+## 🔗 Routes & API
+
+### Web Routes (Authenticated)
+
+| 🌐 URL              | ⚡ Method               | 🧩 Controller               | 📝 Description                        |
+| ------------------- | ---------------------- | --------------------------- | ------------------------------------- |
+| `/dashboard`        | GET                    | `ReportController@index`    | Main dashboard overview 📊            |
+| `/reports`          | GET                    | `ReportController@index`    | Reports listing 📈                    |
+| `/products`         | GET, POST, PUT, DELETE | `ProductController`         | CRUD operations for products 🛍️      |
+| `/products/{id}`    | GET                    | `ProductController@show`    | Returns JSON details of a product 📦  |
+| `/customers`        | GET, POST, PUT, DELETE | `CustomerController`        | CRUD operations for customers 👥      |
+| `/customers/{id}`   | GET                    | `CustomerController@show`   | Returns JSON details of a customer 📦 |
+| `/sales`            | GET, POST              | `SaleController`            | List and create sales 💵              |
+| `/search/products`  | GET                    | `ProductController@search`  | Search products 🔍                    |
+| `/search/customers` | GET                    | `CustomerController@search` | Search customers 🔎                   |
+| `/profile`          | GET, PATCH, DELETE     | `ProfileController`         | View, update, or delete profile 👤    |
+
+---
+
+### API Responses (JSON)
+
+#### Product Example
+
+```json
+{
+  "id": 1,
+  "name": "Product A",
+  "price": 50.00,
+  "stock": 100,
+  "created_at": "2025-12-05T12:34:56",
+  "updated_at": "2025-12-05T12:34:56"
+}
+```
+
+#### Customer Example
+
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "+123456789",
+  "created_at": "2025-12-05T12:34:56",
+  "updated_at": "2025-12-05T12:34:56"
+}
+```
+
+---
+
+## 🔐 Authentication & Authorization
+
+* **Guest routes** 📝:
+
+  * `register` 🆕
+  * `login` 🔑
+  * `forgot-password` 📧
+  * `reset-password` 🔄
+
+* **Authenticated routes** 🔒:
+
+  * `dashboard` 📊
+  * `profile` 👤
+  * `products` 🛍️
+  * `customers` 👥
+  * `sales` 💵
+  * `verify-email` ✅
+  * `confirm-password` 🔐
+  * `update-password` 🔄
+  * `logout` 🔓
+
+---
+
+## 🧰 Artisan Commands
+
+* `php artisan inspire` 🌟 – Displays an inspiring quote in the console 💡
+* `php artisan migrate` 🗂️ – Runs database migrations
+* `php artisan db:seed` 🌱 – Seeds the database with sample data
+
+---
+
+## 📜 License
+
+Open project is licensed under the **MIT License** 📝. See the [LICENSE](LICENSE) file for details.
+
+---
